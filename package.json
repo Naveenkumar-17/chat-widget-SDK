@@ -1,5 +1,5 @@
 {
-  "name": "@bolddesk/live-chat-web-sdk",
+  "name": "Naveenkumar-17/chat-widget-SDK",
   "version": "1.0.1",
   "description": "A lightweight JavaScript SDK for integrating BoldDesk Live Chat into web applications.",
   "keywords": [
@@ -8,7 +8,7 @@
     "web-sdk",
     "bolddesk"
   ],
-  "author": "Syncfusion Inc",
+  "author": "Naveen-17",
   "license": "SEE LICENSE IN README.md",
   "main": "dist/live-chat-web-sdk.umd.js",
   "module": "dist/live-chat-web-sdk.esm.js",
@@ -37,6 +37,15 @@
     "typescript": "4.8.2",
     "rimraf": "^3.0.2"
   },
+  
+{
+  "name": "@Naveenkumar-17/chat-widget-SDK",
+  "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+},
+
   "files": [
     "src",
     "dist"
