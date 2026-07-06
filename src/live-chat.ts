@@ -3,8 +3,6 @@ declare global {
   var boldChatSettings: {
     email?: string;
     userToken?: string;
-    isConversationVerified?: boolean;
-    isSessionVerified?: boolean;
   };
 }
 
@@ -45,7 +43,7 @@ class LiveChat {
     // Set userToken in boldChatSettings if provided
     if (options.userToken?.trim()) {
       window.boldChatSettings = window.boldChatSettings || {};
-      window.boldChatSettings.email = options.userToken;
+      window.boldChatSettings.userToken = options.userToken;
     }
 
     this.widgetScriptUrl = `${brandUrl}/chatwidget-api/widget/v1/${widgetId}${options.locale ? `?culture=${options.locale}` : ''}`;
@@ -170,20 +168,6 @@ class LiveChat {
   public openSection(section: string): void {
     this.initializeChatData();
     window.$boldChat.push(["do:openSection", section]);
-  }
-
-  /**
-   * Verifies the current conversation by validating the user's identity with the backend.
-   * @param options - An object containing:
-   *                  - `email` (optional): The user's email address.
-   *                  - `userToken` (optional): A token used to verify the user.
-   *                  - `callback`: A function invoked with the verification result:
-   *                    - `isVerified`: Whether verification was successful.
-   *                    - `message`: A status or error message from the server.
-   */
-  public verifyConversation(options: { email?: string, userToken?: string, callback: (response: { isVerified: boolean, message: string }) => void }): void {
-    this.initializeChatData();
-    window.$boldChat.push(["do:verifyConversation", options]);
   }
 
   /**
