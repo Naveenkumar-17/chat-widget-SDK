@@ -259,6 +259,25 @@ class LiveChat {
     this.initializeChatData();
     window.$boldChat.push(["on:widgetClosed", callback]);
   }
+
+  /**
+   * Registers a callback triggered when the chat widget has finished loading and is ready for user interaction.
+   * @param callback - A function called with no arguments when the widget Loaded.
+   */
+  public onWidgetLoaded(callback: () => void): void {
+    this.initializeChatData();
+    window.$boldChat.push(["on:widgetLoaded", callback]);
+  }
+
+  /**
+   * Registers a callback triggered when the widget view changes between sections or views.
+   * @param callback - A function that receives details about the view transition, including the
+   * previous section, current section, previous view, and current view.
+   */
+  public onWidgetViewChanged(callback: (details: { previousSection: string, currentSection: string, previousView: string, currentView: string }) => void): void {
+    this.initializeChatData();
+    window.$boldChat.push(["on:widgetViewChanged", callback]);
+  }
 }
 
 const liveChat = new LiveChat();
